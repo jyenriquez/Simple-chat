@@ -1,2 +1,2 @@
 # Simple-chat
-A simple chat application using front-end and back-end stuff
+A simple chat web app, currently in progress
