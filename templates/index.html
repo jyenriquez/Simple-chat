@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Web-App</title>
-</head>
-<body>
-    <h1>Submit something in the form below!</h1>
-    <ul id="message-board"></ul>
-    <form>
-        <input type="text" id="chatMessage" name="cm"><br>
-        <button type="button" id="clear-button">Clear Messages</button>
-    </form>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+    <h1>Hello! Welcome to Simple Chat!</h1>
+    <p>This is a very rough chat web app to get to get my hands dirty with building things and stuff.
+    </p>
 
-<script src="/static/js/script.js"></script>
+    <br/><br/>
+
+    <h3>Here is a cool picture</h3>
+    <img src="https://media1.tenor.com/images/3e3fc2e015563bfb49e7b023bf6218d5/tenor.gif?itemid=17407714" alt="A monkey spinning">
+
+
+{% endblock %}
