@@ -6,9 +6,12 @@ from datetime import datetime, timedelta
 
 cluster = MongoClient("mongodb+srv://poporing:7sv7T7Vt0cPt@cluster0.tliy9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 
-# Initializes the database
+# Initializes the user database and collection
 db = cluster["test"]
-collection = db["test"]
+collection = db["users"]
+
+# Initializing the message collection
+collection_messages = db["messages"]
 
 # Posts a new name to the DB
 def post_name(name):
@@ -24,4 +27,16 @@ def get_name(name):
         return False
     return True
 
+# Posts message into the DB
+def post_message(message, user):
+    post = {"name": user, "message": message, "dateAdded": datetime.today()}
+    collection_messages.insert_one(post)
 
+    # For debugging purposes
+    # for document in cursor:
+    #     print(document.get("message") + " - " +document.get("name"))
+
+def get_messages():
+    # Grabs all objects in collection_messages
+    cursor = collection_messages.find({})
+    return cursor

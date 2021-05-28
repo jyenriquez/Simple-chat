@@ -1,5 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
+{% if not already_submitted %}
+    <p>You are not logged in. Please head over to <a href = '/name'>name</a> to log in. <p>
+{% else %}
+    <div>
+        <h1>Hello {{user}}</h1>
 
+        <ul id="notifications-list" style="list-style-type: none"></ul>
+        {% if message_dict is not none %}
+        {% for message in message_dict %}
+            <div>
+                {{message.get("message")}}
+            </div>
+        {% endfor %}
+        {% endif %}
+        <div style="text-align: center">
+            <button id="notifications-show-more" class="button button-primary">Show More</button>
+            <br><br>
+        </div>
+    </div>
+
+    <div>
+        <form method="POST">
+            {{ messageForm.hidden_tag() }}
+            {{ messageForm.message.label(class="form-label") }}
+            {{ messageForm.message(class="form-control") }}
+            <br/>
+            {{ messageForm.submit(class="btn btn-secondary") }}
+        </form>
+    </div>
+
+{% endif %}
 
 {% endblock %}

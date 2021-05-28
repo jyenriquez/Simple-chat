@@ -3,7 +3,7 @@
     <h1>Hello {{user}}! Welcome to Simple Chat!</h1>
     <p>This is a very rough chat web app to get to get my hands dirty with building things and stuff.</p>
     {% if logged_in %}
-        <p>You are logged in!</p>
+        <p>You are logged in {{user}}! </p>
         <p>Click <a href = '/logout'>here</a> to logout</p>
     {% else %}
         <p>You are not logged in <a href = '/name'> click here to log in</a></p>
