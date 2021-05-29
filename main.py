@@ -59,8 +59,6 @@ def name():
     return render_template("name.html", name=name, form=form, 
     already_submitted = already_submitted, user = session.get('user'))
 
-# TODO: Create a working message board
-
 # Message page
 @app.route('/messages', methods=['GET', 'POST'])
 def message():
