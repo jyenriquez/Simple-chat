@@ -1,11 +1,7 @@
-// TODO: Create working automatic scroll down
-function top() {
-    document.getElementById( 'top' ).scrollIntoView();    
-};
+//Kinda hacky way to scroll down
+setTimeout(printSomething, 250);
 
-function bottom() {
-    document.getElementById( 'bottom' ).scrollIntoView();
-    window.setTimeout( function () { top(); }, 2000 );
-};
-
-bottom();
+function printSomething(){
+    window.scrollTo(0,document.body.scrollHeight);
+    setTimeout(printSomething, 10000);
+}

@@ -3,31 +3,36 @@
 {% if not already_submitted %}
     <p>You are not logged in. Please head over to <a href = '/name'>name</a> to log in. <p>
 {% else %}
-    <div id="top">top</div>
+    <head>
+        <script src="/static/js/script.js"></script>
+    </head>
+
     <div>
         <h1>Hello {{user}}</h1>
 
         <ul id="notifications-list" style="list-style-type: none"></ul>
-        {% if message_dict is not none %}
-        {% for message in message_dict %}
-            <!-- <div>
-                {{message.get("message")}}
-            </div> -->
-            <div class="alert alert-dark" role="alert">
-                <i>{{message.get("dateAdded")}}</i>
-            <br>
-                <b>{{message.get("name")}}</b>
-            <br>
-                {{message.get("message")}}
-            </div>
-        {% endfor %}
+        <div id="messages">
+            {% if message_dict is not none %}
+            {% for message in message_dict %}
+                <!-- <div>
+                    {{message.get("message")}}
+                </div> -->
+
+                <div class="alert alert-dark" role="alert" class="message">
+                    <i>{{message.get("dateAdded")}}</i>
+                <br>
+                    <b>{{message.get("name")}}</b>
+                <br>
+                    {{message.get("message")}}
+                </div>
+            {% endfor %}
+        </div>
         {% endif %}
         <!-- <div style="text-align: center">
             <button id="notifications-show-more" class="button button-primary">Show More</button>
             <br><br>
         </div> -->
     </div>
-    <div id="bottom">bottom</div>
 
     <div>
         <form method="POST">
@@ -39,7 +44,17 @@
         </form>
     </div>
 
+    <br>
+    <!-- <a href = '/'>Go back to Home</a> -->
+    <div class="text-center">
+        <a href='/'>
+            <button type="button" class="btn btn-primary btn-lg" style = "text-align: center;">Home</button>
+        </a>
+    </div>
+
+
+
 {% endif %}
-<script src="/static/js/script.js"></script>
+
 
 {% endblock %}
