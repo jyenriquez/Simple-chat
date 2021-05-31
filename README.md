@@ -9,5 +9,11 @@ How to install local environment:
 - `export FLASK_APP=main.py`
 - `export FLASK_ENV=development`
 - `flask run`
-# Simple-chat
+
+## Heroku CLI commands
+- `heroku create` to create a heroku app
+- `heroku rename` to change name
+- `heroku logs --tail`
+
+## Simple-chat
 A simple chat web app, currently in progress
